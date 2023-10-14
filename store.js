@@ -141,13 +141,19 @@ createFilteredProducts(value)
 //initialy all products
 createFilteredProducts("")
 
-let addTocartBtn=container.querySelectorAll(".addTocartBtn")
-for(let i=0;i<addTocartBtn.length;i++){
-   let currentBtn=addTocartBtn[i];
-   currentBtn.addEventListener("click",(e)=>{
-addTocart(e)
-   })
-}
+// let addTocartBtn=container.querySelectorAll(".addTocartBtn")
+// for(let i=0;i<addTocartBtn.length;i++){
+//    let currentBtn=addTocartBtn[i];
+//    currentBtn.addEventListener("click",(e)=>{
+// addTocart(e)
+//    })
+// }
+//we instead use throttling like we did in bubble game
+container.addEventListener("click", (e) => {
+        if (e.target.classList.contains("addTocartBtn")) {
+            addTocart(e);
+        }
+    });
 let cartItems=document.querySelector(".cartItems")
 function addTocart(e){
    let target=e.target;
